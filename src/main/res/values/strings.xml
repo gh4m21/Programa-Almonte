@@ -1,0 +1,31 @@
+<resources>
+    <!-- Los strings -->
+    <string name="nombre_Programa">Programita-Almonte</string>
+    <string name="crear_prestamo">Crear Nueva Prestamo</string>
+    <string name="renovar_prestamo">Renovar Prestamo</string>
+    <string name="routinas">Routinas</string>
+    <string name="crear_cliente">Crear Nueva Cliente</string>
+    <string name="lista_cliente">Lista Cliente</string>
+    <string name="lista_prestamo">Lista Prestamo</string>
+    <string name="inicio">Inicio</string>
+    <string name="sincronizar">Sincronizar</string>
+    <string name="Santiago">Santiago</string>
+    <string name="Puerto_Plata">Puerto-Plata</string>
+    <string name="Moca">Moca</string>
+    <string name="Licey">Licey</string>
+
+    <!-- Styles -->
+    <style name="Botones" parent="">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">#4CAF50</item>
+    </style>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+
+
+</resources>

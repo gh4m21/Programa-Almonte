@@ -1,8 +1,6 @@
 package com.example.almonte.Fragments;
 
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,17 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.almonte.Activities.MainActivity;
-import com.example.almonte.Activities.datos.DummyContent;
-import com.example.almonte.Activities.rutinaListActivity;
-import com.example.almonte.Activities.rutinasDetailActivity;
+import com.example.almonte.Activities.clienteNoPagoActivity;
 import com.example.almonte.Adapter_recyclerview_rutinas;
 import com.example.almonte.R;
 
@@ -54,7 +47,7 @@ public class RoutinasFragment extends Fragment {
         View.OnClickListener santiagoClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent listaRutinas = new Intent(getActivity(), rutinaListActivity.class);
+                Intent listaRutinas = new Intent(getActivity(), clienteNoPagoActivity.class);
                 startActivity(listaRutinas);
             }
         };
@@ -72,7 +65,7 @@ public class RoutinasFragment extends Fragment {
             @Override
             public void onItemClick(String ciudad, int position) {
                 Toast.makeText(getActivity(),ciudad +" y la posicion es "+position, Toast.LENGTH_SHORT).show();
-                Intent listaRutinas = new Intent(getActivity(), rutinaListActivity.class);
+                Intent listaRutinas = new Intent(getActivity(), clienteNoPagoActivity.class);
                 startActivity(listaRutinas);
             }
         });

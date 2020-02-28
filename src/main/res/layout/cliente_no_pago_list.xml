@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".Activities.rutinaListActivity"
-    tools:listitem="@layout/rutinas_list_content" />
+    tools:context=".Activities.clienteNoPagoActivity"
+    tools:listitem="@layout/cliente_no_pago_list_content" />

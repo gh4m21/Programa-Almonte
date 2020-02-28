@@ -13,17 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.rutinaListActivity"
+            android:name=".Activities.clienteNoPagoActivity"
             android:label="@string/title_item_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".Activities.rutinasDetailActivity"
+            android:name=".Activities.pagoDetailActivity"
             android:label="@string/title_item_detail"
-            android:parentActivityName=".Activities.rutinaListActivity"
+            android:parentActivityName=".Activities.clienteNoPagoActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.almonte.Activities.rutinaListActivity" />
+                android:value="com.example.almonte.Activities.clienteNoPagoActivity" />
         </activity>
         <activity
             android:name=".Activities.MainActivity"

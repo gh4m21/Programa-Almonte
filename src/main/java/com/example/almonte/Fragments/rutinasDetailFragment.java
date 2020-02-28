@@ -3,8 +3,8 @@ package com.example.almonte.Fragments;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.example.almonte.Activities.rutinaListActivity;
-import com.example.almonte.Activities.rutinasDetailActivity;
+import com.example.almonte.Activities.clienteNoPagoActivity;
+import com.example.almonte.Activities.pagoDetailActivity;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import androidx.fragment.app.Fragment;
@@ -19,8 +19,8 @@ import com.example.almonte.Activities.datos.DummyContent;
 
 /**
  * A fragment representing a single Item detail screen.
- * This fragment is either contained in a {@link rutinaListActivity}
- * in two-pane mode (on tablets) or a {@link rutinasDetailActivity}
+ * This fragment is either contained in a {@link clienteNoPagoActivity}
+ * in two-pane mode (on tablets) or a {@link pagoDetailActivity}
  * on handsets.
  */
 public class rutinasDetailFragment extends Fragment {
@@ -52,10 +52,12 @@ public class rutinasDetailFragment extends Fragment {
             // to load content from a content provider.
             mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
 
+            
+
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content);
+                appBarLayout.setTitle(mItem.id);
             }
         }
     }
@@ -63,7 +65,7 @@ public class rutinasDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.rutinas_detail, container, false);
+        View rootView = inflater.inflate(R.layout.pago_detail, container, false);
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {

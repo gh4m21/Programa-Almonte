@@ -1,21 +1,15 @@
 package com.example.almonte.Fragments;
 
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
-import android.view.SurfaceControl;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.almonte.Activities.rutinaListActivity;
 import com.example.almonte.R;
 
 /**
@@ -94,6 +88,6 @@ public class InicioFragment extends Fragment {
 }
 
 /*
-                Intent listaRutinas = new Intent(getActivity(), rutinaListActivity.class);
+                Intent listaRutinas = new Intent(getActivity(), clienteNoPagoActivity.class);
                 startActivity(listaRutinas);
  */

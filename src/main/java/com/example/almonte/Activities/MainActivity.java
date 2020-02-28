@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     private final View.OnClickListener santiagoClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent listaRutinas = new Intent(MainActivity.this, rutinaListActivity.class);
+            Intent listaRutinas = new Intent(MainActivity.this, clienteNoPagoActivity.class);
             startActivity(listaRutinas);
         }
     };

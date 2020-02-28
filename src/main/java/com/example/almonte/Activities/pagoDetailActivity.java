@@ -4,12 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.almonte.Fragments.rutinasDetailFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBar;
@@ -22,14 +18,14 @@ import com.example.almonte.R;
  * An activity representing a single Item detail screen. This
  * activity is only used on narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
- * in a {@link rutinaListActivity}.
+ * in a {@link clienteNoPagoActivity}.
  */
-public class rutinasDetailActivity extends AppCompatActivity {
+public class pagoDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rutina_detail);
+        setContentView(R.layout.activity_pago_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
@@ -72,7 +68,7 @@ public class rutinasDetailActivity extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            navigateUpTo(new Intent(this, rutinaListActivity.class));
+            navigateUpTo(new Intent(this, clienteNoPagoActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -1,26 +1,19 @@
 package com.example.almonte.Activities;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
-
-import com.example.almonte.Fragments.rutinasDetailFragment;
-
 import android.view.View;
-import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.almonte.Activities.Databases.SqliteDatabase;
+import com.example.almonte.Activities.Databases.exampleListaNoPago;
 import com.example.almonte.R;
 
-import com.example.almonte.Activities.datos.DummyContent;
-
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * An activity representing a list of Items. This activity
@@ -32,256 +25,52 @@ import java.util.List;
  */
 public class clienteNoPagoActivity extends AppCompatActivity {
 
-    /**
-     * Whether or not the activity is in two-pane mode, i.e. running on a tablet
-     * device.
-     */
-    private boolean tabletMode;
-    //    private OnItemClickListener mListener;
-    private Button btnPagar;
-    private Button btnRendimiento;
-    private Button btnDetalle;
-    private List<DummyContent.DummyItem> mValues;
-    private RecyclerView mRecyclerView;
+    private SqliteDatabase mDatabase;
+    private ArrayList<exampleListaNoPago> allPrestamo = new ArrayList<>();
     private AdapterClienteNoPagoActivity mAdapter;
-    private RecyclerView.LayoutManager mLayoutmanager;
 
-    /*
-    private View.OnClickListener pagarClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            DummyContent.DummyItem item = (DummyContent.DummyItem) v.getTag();
-            if (tabletMode) {
-                Bundle arguments = new Bundle();
-                arguments.putString(rutinasDetailFragment.ARG_ITEM_ID, item.id);
-                rutinasDetailFragment fragment = new rutinasDetailFragment();
-                fragment.setArguments(arguments);
-                FragmentActivity mParentActivity = new FragmentActivity();
-                mParentActivity.getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.item_detail_container, fragment)
-                        .commit();
-            } else {
-                Context context = v.getContext();
-                Intent intent = new Intent(context, pagoDetailActivity.class);
-                intent.putExtra(rutinasDetailFragment.ARG_ITEM_ID, item.id);
 
-                context.startActivity(intent);
-            }
-        }
-    };
-
-     */
-
-    //  main Activity para la lista
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cliente_no_pago);
 
+        FrameLayout fLayout = (FrameLayout) findViewById(R.id.frameLayout);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(getTitle());
+        RecyclerView PrestamoView = (RecyclerView) findViewById(R.id.item_list);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        PrestamoView.setLayoutManager(mLayoutManager);
 
-        btnPagar = (Button) findViewById(R.id.btnPagar);
-        btnRendimiento = (Button) findViewById(R.id.btnRendimiento);
-        btnDetalle = (Button) findViewById(R.id.btnVerCliente);
+        PrestamoView.setHasFixedSize(true);
+        mDatabase = new SqliteDatabase(this);
+        allPrestamo = mDatabase.ListPrestamo();
 
-        buildRecyclerView();
-       // setButton();
+        if (allPrestamo.size() > 0) {
+            PrestamoView.setVisibility(View.VISIBLE);
+            mAdapter = new AdapterClienteNoPagoActivity(this, allPrestamo);
+            PrestamoView.setAdapter(mAdapter);
 
-    } //...
+        } else {
+            PrestamoView.setVisibility(View.GONE);
+            Toast.makeText(this, "Prestamo vacio, Sincronizar para agregar la lista de prestamo no pagado", Toast.LENGTH_LONG).show();
 
+            exampleListaNoPago newPrestamo = new exampleListaNoPago("Fenley", "Menelas", "PP-5363636", "809-884-0841", "Villa Olimpica Manzana B, edif 7, apt 1B", 3000);
+            mDatabase.addPrestamo(newPrestamo);
 
-    public void buildRecyclerView() {
-        mRecyclerView = findViewById(R.id.item_list);
-        mLayoutmanager = new LinearLayoutManager(this);
-        mAdapter = new AdapterClienteNoPagoActivity(this, DummyContent.ITEMS, tabletMode);
-
-        mRecyclerView.setLayoutManager(mLayoutmanager);
-        mRecyclerView.setAdapter(mAdapter);
-
-        mAdapter.setOnItemClickListener(new AdapterClienteNoPagoActivity.OnItemClickListener() {
-            @Override
-            public void onItemClick(View v,int position) {
-                Toast.makeText(getBaseContext(), "Item click" + position, Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onPagarClick(View v,int position) {
-                Toast.makeText(getBaseContext(), "pagar click" + position, Toast.LENGTH_SHORT).show();
-                DummyContent.DummyItem item = (DummyContent.DummyItem) v.getTag();
-                if (tabletMode) {
-                    Bundle arguments = new Bundle();
-                    arguments.putString(rutinasDetailFragment.ARG_ITEM_ID, item.id);
-                    rutinasDetailFragment fragment = new rutinasDetailFragment();
-                    fragment.setArguments(arguments);
-                    FragmentActivity mParentActivity = new FragmentActivity();
-                    mParentActivity.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, fragment)
-                            .commit();
-                } else {
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, pagoDetailActivity.class);
-                    intent.putExtra(rutinasDetailFragment.ARG_ITEM_ID, item.id);
-
-                    context.startActivity(intent);
-                }
-            }
-        });
-    }
-
-    public void setButton() {
-        btnPagar = (Button) findViewById(R.id.btnPagar);
-        btnRendimiento = (Button) findViewById(R.id.btnRendimiento);
-        btnDetalle = (Button) findViewById(R.id.btnVerCliente);
-
-        btnPagar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getBaseContext(),"Pagar click con exito", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-
-
-
-
-/*
-        if (findViewById(R.id.item_detail_container) != null) {
-            // The detail container view will be present only in the
-            // large-screen layouts (res/values-w900dp).
-            // If this view is present, then the
-            // activity should be in two-pane mode.
-            tabletMode = true;
+            //funciones que sirven para update el activity cuando se actualiza los datos de un database, una lista...
+            finish();
+            startActivity(getIntent());
         }
-
-        View recyclerView = findViewById(R.id.item_list);
-        assert recyclerView != null;
-        setupRecyclerView((RecyclerView) recyclerView);
-    }
-
- */
-/*
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        mListener = listener;
-    }
-
-
-    public class SimpleItemRecyclerViewAdapter
-            extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
-
-        private final clienteNoPagoActivity mParentActivity;
-        private final List<DummyContent.DummyItem> mValues;
-        private final boolean tabletMode;
-
- */
-
-    //click to access pagar activity
-/*
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, tabletMode));
-    }
-
-      private View.OnClickListener btnPagar = new View.OnClickListener(){
-            @Override
-            public void onClick (View v){
-            if (mListener != null) {
-                int position = 0;
-                if (position != RecyclerView.NO_POSITION) {
-                    mListener.onPagarClick(position);
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, pagoDetailActivity.class);
-                    // intent.putExtra(rutinasDetailFragment.ARG_ITEM_ID, item.id);
-
-                    context.startActivity(intent);
-                }
-            }
-        }
-        };
-
-
-
-    SimpleItemRecyclerViewAdapter(clienteNoPagoActivity parent,
-                                  List<DummyContent.DummyItem> items,
-                                  boolean twoPane) {
-        mValues = items;
-        mParentActivity = parent;
-        tabletMode = twoPane;
-    }
-
-
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.ClienteNoPago_list_content, parent, false);
-        ViewHolder vh = new ViewHolder(view, mListener);
-        return vh;
-    }
-
-    @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
-
-        mListener.onPagarClick(position);
-        holder.itemView.setTag(mValues.get(position));
-        holder.itemView.setOnClickListener(pagarClick);
-
 
     }
 
     @Override
-    public int getItemCount() {
-        return mValues.size();
-    }
-
-//break
-        //Adapter para la lista de clientes no pagos
-
-    class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView mIdView;
-        final TextView mContentView;
-        Button btnPagar;
-
-        ViewHolder(View view, final OnItemClickListener listener) {
-            super(view);
-            mIdView = (TextView) view.findViewById(R.id.nombre_cliente);
-            mContentView = (TextView) view.findViewById(R.id.apellido_cliente);
-            btnPagar = (Button) view.findViewById(R.id.btnPagar);
-
-                itemView.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        if(listener != null) {
-                            int position = getAdapterPosition();
-                            if(position != RecyclerView.NO_POSITION) {
-                                listener.onItemClick(position);
-                                Context context = v.getContext();
-                                Intent intent = new Intent(context, pagoDetailActivity.class);
-                               // intent.putExtra(rutinasDetailFragment.ARG_ITEM_ID, item.id);
-
-                                context.startActivity(intent);
-                            }
-                        }
-                    }
-                });
-
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mDatabase != null) {
+            mDatabase.close();
         }
     }
-}
 
 
-public interface OnItemClickListener {
-    public void onItemClick(int position);
-
-    public void onPagarClick(int position);
-}
-v
- */
-
-    // }
 }

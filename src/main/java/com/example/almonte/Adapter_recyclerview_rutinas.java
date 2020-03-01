@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import java.util.List;
 
-import static android.media.CamcorderProfile.get;
 
 public class Adapter_recyclerview_rutinas extends RecyclerView.Adapter<Adapter_recyclerview_rutinas.viewHolder> {
 

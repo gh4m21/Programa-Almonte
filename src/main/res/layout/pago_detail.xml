@@ -4,16 +4,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.rutinasDetailFragment">
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    tools:context=".Fragments.pagoDetailFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/item_detail"
-        style="?android:attr/textAppearanceLarge"
-        android:padding="16dp"
-        android:textIsSelectable="true"/>
+        android:layout_height="wrap_content"
+        android:background="#CDDBDBDB"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
+        <TextView
+            android:id="@+id/nombre_cliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/apellido_cliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="2dp"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/cedula_cliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CDDBDBDB"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/plan_prestamo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/cuotas_prestamo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CDDBDBDB"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/monto_deuda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#DF0A0A"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/fecha_hoy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monto"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/TextMonto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:hint="Ingrese el monto"
+            android:inputType="numberDecimal"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp">
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/pagarBtn"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:text="Pagar"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelBtn"
+        android:textColor="#9C1919"
+        android:layout_margin="10dp"
+        android:text="cancel"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>

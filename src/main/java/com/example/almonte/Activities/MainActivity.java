@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    //private Button linkListaRutinas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +36,6 @@ public class MainActivity extends AppCompatActivity {
         setToolbar();
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-
-      //  linkListaRutinas = (Button) findViewById(R.id.santiago);
-       // linkListaRutinas.setOnClickListener(santiagoClick);
 
         setFragmentByDefault();
 
@@ -124,13 +120,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-/*
-    private final View.OnClickListener santiagoClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent listaRutinas = new Intent(MainActivity.this, clienteNoPagoActivity.class);
-            startActivity(listaRutinas);
-        }
-    };
-*/
+
 }

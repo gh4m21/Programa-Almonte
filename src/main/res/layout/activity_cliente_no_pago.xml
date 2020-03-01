@@ -27,6 +27,25 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <EditText
+            android:id="@+id/searchText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:textColor="#000000"
+            android:hint="Search"
+            android:layout_gravity="top"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Buscar"
+            android:layout_marginTop="55dp"/>
+
+
         <include layout="@layout/cliente_no_pago_list" />
     </FrameLayout>
 

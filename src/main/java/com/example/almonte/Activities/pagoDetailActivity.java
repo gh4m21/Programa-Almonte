@@ -3,7 +3,8 @@ package com.example.almonte.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.almonte.Fragments.rutinasDetailFragment;
+import com.example.almonte.Activities.Databases.exampleListaNoPago;
+import com.example.almonte.Fragments.pagoDetailFragment;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -11,16 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBar;
 
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.almonte.R;
 
-/**
- * An activity representing a single Item detail screen. This
- * activity is only used on narrow width devices. On tablet-size devices,
- * item details are presented side-by-side with a list of items
- * in a {@link clienteNoPagoActivity}.
- */
+
 public class pagoDetailActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,22 +33,14 @@ public class pagoDetailActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        // savedInstanceState is non-null when there is fragment state
-        // saved from previous configurations of this activity
-        // (e.g. when rotating the screen from portrait to landscape).
-        // In this case, the fragment will automatically be re-added
-        // to its container so we don't need to manually add it.
-        // For more information, see the Fragments API guide at:
-        //
-        // http://developer.android.com/guide/components/fragments.html
-        //
+        int id = (int) getIntent().getSerializableExtra("ID_iTEM"); //recuperar en el activity el dato del activity lista que esta pasando
+
         if (savedInstanceState == null) {
-            // Create the detail fragment and add it to the activity
-            // using a fragment transaction.
+            // Aqui se esta creando el fragment y le pasa el datos del id para recuperarla en el fragment
             Bundle arguments = new Bundle();
-            arguments.putString(rutinasDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(rutinasDetailFragment.ARG_ITEM_ID));
-            rutinasDetailFragment fragment = new rutinasDetailFragment();
+            arguments.putInt("id_item",
+                    id);
+            pagoDetailFragment fragment = new pagoDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.item_detail_container, fragment)

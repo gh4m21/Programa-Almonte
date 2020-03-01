@@ -25,7 +25,6 @@ import java.util.List;
  */
 public class RoutinasFragment extends Fragment {
 
-    //private Button linkListaRutinas;
     private List<String> ciudades;
 
     private RecyclerView mRecyclerView;
@@ -41,21 +40,7 @@ public class RoutinasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_routinas, container, false);
-/*
-        linkListaRutinas = (Button) vista.findViewById(R.id.santiago);
 
-        View.OnClickListener santiagoClick = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent listaRutinas = new Intent(getActivity(), clienteNoPagoActivity.class);
-                startActivity(listaRutinas);
-            }
-        };
-
-        linkListaRutinas.setOnClickListener(santiagoClick);
-
-
- */
         ciudades = getAllCiudades();
 
         mRecyclerView = (RecyclerView) vista.findViewById(R.id.reciclerViewRutina);
@@ -64,8 +49,9 @@ public class RoutinasFragment extends Fragment {
 
             @Override
             public void onItemClick(String ciudad, int position) {
-                Toast.makeText(getActivity(),ciudad +" y la posicion es "+position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Abriendo "+ciudad+"...", Toast.LENGTH_SHORT).show();
                 Intent listaRutinas = new Intent(getActivity(), clienteNoPagoActivity.class);
+               // listaRutinas.putExtra("ID_iTEM", ciudades.get(position)); // Aqui para pasar  la ciudad que selecione para filtrar el resultado de la busqueda
                 startActivity(listaRutinas);
             }
         });
@@ -76,6 +62,7 @@ public class RoutinasFragment extends Fragment {
         return vista;
     }
 
+// Agregar la lista de ciudad para mostrar
 
     public List<String> getAllCiudades() {
         return new ArrayList<String>() {{
@@ -83,7 +70,6 @@ public class RoutinasFragment extends Fragment {
             add("Puerto-Plata");
             add("Moca");
             add("Santo_Domingo");
-            add("Sosua");
         }};
     }
 

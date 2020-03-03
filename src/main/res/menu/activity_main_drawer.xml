@@ -2,49 +2,44 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-<group android:checkableBehavior="single">
+    <group android:checkableBehavior="single">
 
-    <item
-        android:id="@+id/inicio"
-        android:title="@string/inicio" />
+        <item
+            android:id="@+id/inicio"
+            android:title="@string/inicio" />
 
-    <item
-        android:id="@+id/Nav_VerRoutinas"
-        android:title="@string/routinas" />
+        <item
+            android:id="@+id/Nav_VerRoutinas"
+            android:title="@string/routinas" />
 
+        <item
+            android:id="@+id/Nav_ListasPrestamos"
+            android:title="@string/lista_prestamo" />
+
+        <item
+            android:id="@+id/Nav_CrearCliente"
+            android:title="@string/crear_cliente" />
+
+        <item
+            android:id="@+id/Nav_VerCliente"
+            android:title="@string/lista_cliente" />
+
+        <item
+            android:id="@+id/Nav_Administrar_Usuario"
+            android:title="@string/administrar_usuario" />
+
+    </group>
+
+    <item android:title="Opciones Adicionales">
+        <menu>
             <item
-                android:id="@+id/Nav_CrearPrestamo"
-                android:title="@string/crear_prestamo" />
-            <item
-                android:id="@+id/Nav_RenovarPrestamo"
-                android:title="@string/renovar_prestamo" />
-            <item
-                android:id="@+id/Nav_ListasPrestamos"
-                android:title="@string/lista_prestamo" />
+                android:id="@+id/Opciones"
+                android:title="Opciones">
 
-            <item
-                android:id="@+id/Nav_CrearCliente"
-                android:title="@string/crear_cliente" />
-            <item
-                android:id="@+id/Nav_VerCliente"
-                android:title="@string/lista_cliente" />
+            </item>
+        </menu>
 
-</group>
-
-<item android:title="Opciones Adicionales">
-    <menu>
-        <item android:id="@+id/random1"
-            android:title="Random1">
-        </item>
-        <item android:id="@+id/random2"
-            android:title="Random1">
-        </item>
-        <item android:id="@+id/random3"
-            android:title="Random1">
-        </item>
-    </menu>
-
-</item>
+    </item>
 
 </menu>
 

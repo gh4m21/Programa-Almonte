@@ -1,4 +1,4 @@
-package com.example.almonte.Activities;
+package com.example.almonte;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,11 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.almonte.Activities.Databases.SqliteDatabase;
 import com.example.almonte.Activities.Databases.exampleListaNoPago;
-import com.example.almonte.R;
+import com.example.almonte.Activities.ListaNoPagoViewHolder;
+import com.example.almonte.Activities.pagoDetailActivity;
 
 import java.util.ArrayList;
 
-public class AdapterClienteNoPagoActivity extends RecyclerView.Adapter<PrestamoViewHolder> implements Filterable {
+public class AdapterClienteNoPagoActivity extends RecyclerView.Adapter<ListaNoPagoViewHolder> implements Filterable {
 
     //Implementacion con Database
     private Context context;
@@ -36,13 +37,13 @@ public class AdapterClienteNoPagoActivity extends RecyclerView.Adapter<PrestamoV
 
 
     @Override
-    public PrestamoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ListaNoPagoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cliente_no_pago_list_content, parent, false);
-        return new PrestamoViewHolder(view);
+        return new ListaNoPagoViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final PrestamoViewHolder holder, final int position) {
+    public void onBindViewHolder(final ListaNoPagoViewHolder holder, final int position) {
         final exampleListaNoPago Prestamo = ListPrestamo.get(position);
 
         //Para llenar el view con los datos
@@ -63,6 +64,7 @@ public class AdapterClienteNoPagoActivity extends RecyclerView.Adapter<PrestamoV
 
                 Context context = view.getContext();
                 Intent intent = new Intent(context, pagoDetailActivity.class);
+                intent.putExtra("botonClick", "pagar");
                 intent.putExtra("ID_iTEM", Prestamo.getId()); //pasar los datos del activity de lista en otro activity de detail
                 context.startActivity(intent);
             }
@@ -72,12 +74,33 @@ public class AdapterClienteNoPagoActivity extends RecyclerView.Adapter<PrestamoV
 
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Button Rendimiento click con exito, position: " + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Abriendo Rendimiento... ", Toast.LENGTH_SHORT).show();
+
+                Context context = view.getContext();
+                Intent intent = new Intent(context, pagoDetailActivity.class);
+                intent.putExtra("botonClick", "rendimiento");
+                intent.putExtra("ID_iTEM", Prestamo.getId()); //pasar los datos del activity de lista en otro activity de detail
+                context.startActivity(intent);
 
             }
         });
 
         holder.btnDetalle.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Abriendo Informaciones de Prestamo...", Toast.LENGTH_SHORT).show();
+
+                Context context = view.getContext();
+                Intent intent = new Intent(context, pagoDetailActivity.class);
+                intent.putExtra("botonClick", "detalle");
+                intent.putExtra("ID_iTEM", Prestamo.getId()); //pasar los datos del activity de lista en otro activity de detail
+                context.startActivity(intent);
+
+            }
+        });
+
+        holder.btnNoPago.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {

@@ -1,9 +1,12 @@
 <resources>
     <!-- Los strings -->
     <string name="nombre_Programa">Programita-Almonte</string>
+    <string name="crear_usuario">Crear Usuario</string>
+    <string name="administrar_usuario">Administrar Usuario</string>
     <string name="crear_prestamo">Crear Nueva Prestamo</string>
     <string name="renovar_prestamo">Renovar Prestamo</string>
     <string name="routinas">Routinas</string>
+    <string name="facturas">Facturas</string>
     <string name="crear_cliente">Crear Nueva Cliente</string>
     <string name="lista_cliente">Lista Cliente</string>
     <string name="lista_prestamo">Lista Prestamo</string>
@@ -26,6 +29,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
+    <string name="monto_prestamo">Monto Prestamo</string>
 
 
 </resources>

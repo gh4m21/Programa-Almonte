@@ -3,15 +3,14 @@ package com.example.almonte.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.almonte.Activities.clienteNoPagoActivity;
 import com.example.almonte.Adapter_recyclerview_rutinas;
@@ -43,7 +42,7 @@ public class RoutinasFragment extends Fragment {
 
         ciudades = getAllCiudades();
 
-        mRecyclerView = (RecyclerView) vista.findViewById(R.id.reciclerViewRutina);
+        mRecyclerView = vista.findViewById(R.id.reciclerViewRutina);
         mlayoutManager = new LinearLayoutManager(this.getContext());
         mAdapter = new Adapter_recyclerview_rutinas(ciudades, R.layout.recycler_view_ciudad_rutina, new Adapter_recyclerview_rutinas.OnItemClickListener() {
 

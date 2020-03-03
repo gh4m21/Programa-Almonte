@@ -1,10 +1,7 @@
 package com.example.almonte.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +15,6 @@ import com.example.almonte.Fragments.InicioFragment;
 import com.example.almonte.Fragments.ListaClienteFragment;
 import com.example.almonte.Fragments.ListaPrestamoFragment;
 import com.example.almonte.Fragments.NuevaClienteFragment;
-import com.example.almonte.Fragments.RenovarPrestamoFragment;
 import com.example.almonte.Fragments.RoutinasFragment;
 import com.example.almonte.R;
 import com.google.android.material.navigation.NavigationView;
@@ -34,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setToolbar();
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
 
         setFragmentByDefault();
 
@@ -51,15 +47,12 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new InicioFragment();
                         FragmentTransaction = true;
                         break;
-                    case R.id.Nav_CrearPrestamo:
-                        fragment = new CrearPrestamoFragment();
-                        FragmentTransaction = true;
-                        break;
-                    case R.id.Nav_RenovarPrestamo:
-                        fragment = new RenovarPrestamoFragment();
+                    case R.id.Nav_VerRoutinas:
+                        fragment = new RoutinasFragment();
                         FragmentTransaction = true;
                         break;
                     case R.id.Nav_ListasPrestamos:
+                        // listaRutinas.putExtra("ID_iTEM", ciudades.get(position)); // Aqui para pasar  la ciudad que selecione para filtrar el resultado de la busqueda
                         fragment = new ListaPrestamoFragment();
                         FragmentTransaction = true;
                         break;
@@ -71,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new ListaClienteFragment();
                         FragmentTransaction = true;
                         break;
-                    case R.id.Nav_VerRoutinas:
-                        fragment = new RoutinasFragment();
+                    case R.id.Nav_Administrar_Usuario:
+                        fragment = new CrearPrestamoFragment();
                         FragmentTransaction = true;
                         break;
                 }
 
-                if(FragmentTransaction) {
+                if (FragmentTransaction) {
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.nav_host_fragment, fragment)
@@ -93,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_icon);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -116,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
                 //abrir el menu lateral
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
-
         }
         return super.onOptionsItemSelected(item);
     }

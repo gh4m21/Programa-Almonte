@@ -11,70 +11,65 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.almonte.Activities.Databases.SqliteDatabase;
 import com.example.almonte.Activities.Databases.exampleListaNoPago;
-import com.example.almonte.Activities.ListaPrestamoViewHolder;
+import com.example.almonte.Activities.ListaClienteViewHolder;
 import com.example.almonte.Activities.pagoDetailActivity;
 
 import java.util.ArrayList;
 
-public class Adapter_lista_prestamo extends RecyclerView.Adapter<ListaPrestamoViewHolder> {
+public class Adapter_lista_cliente extends RecyclerView.Adapter<ListaClienteViewHolder> {
 
     //Implementacion con Database
     private Context context;
-    private ArrayList<exampleListaNoPago> ListPrestamo;
+    private ArrayList<exampleListaNoPago> ListCliente;
     private ArrayList<exampleListaNoPago> mArrayList;
     private SqliteDatabase mDatabase;
 
-
-    public Adapter_lista_prestamo(Context context, ArrayList<exampleListaNoPago> ListPrestamo) {
+    public Adapter_lista_cliente(Context context, ArrayList<exampleListaNoPago> ListCliente) {
         this.context = context;
-        this.ListPrestamo = ListPrestamo;
-        this.mArrayList = ListPrestamo;
+        this.ListCliente = ListCliente;
+        this.mArrayList = ListCliente;
         mDatabase = new SqliteDatabase(context);
     }
 
+
     @Override
-    public ListaPrestamoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ListaClienteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_prestamo_content, parent, false);
-        ListaPrestamoViewHolder vh = new ListaPrestamoViewHolder(view);
+        ListaClienteViewHolder vh = new ListaClienteViewHolder(view);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(final ListaPrestamoViewHolder holder, int position) {
-        final exampleListaNoPago Prestamo = ListPrestamo.get(position);
+    public void onBindViewHolder(ListaClienteViewHolder holder, int position) {
+        final exampleListaNoPago Cliente = ListCliente.get(position);
 
         //Para llenar el view con los datos
 
-        holder.nombre.setText(Prestamo.getNombre());
-        holder.apellido.setText(Prestamo.getApellido());
-        holder.monto.setText(String.valueOf(Prestamo.getMonto()));
-        holder.fecha.setText("02-03-2020");
-
+        holder.nombre.setText(Cliente.getNombre());
+        holder.apellido.setText(Cliente.getApellido());
         //eventos en los botones
-        holder.btnpagar.setOnClickListener(new View.OnClickListener() {
-
+        holder.btnCrearPrestamo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "Abriendo pagar...", Toast.LENGTH_SHORT).show();
 
                 Context context = view.getContext();
                 Intent intent = new Intent(context, pagoDetailActivity.class);
-                intent.putExtra("botonClick", "pagar");
-                intent.putExtra("ID_iTEM", Prestamo.getId()); //pasar los datos del activity de lista en otro activity de detail
+                intent.putExtra("botonClick", "crearPrestamo");
+                intent.putExtra("ID_iTEM", Cliente.getId()); //pasar los datos del activity de lista en otro activity de detail
                 context.startActivity(intent);
             }
         });
 
-        holder.btnDetalle.setOnClickListener(new View.OnClickListener() {
-
+        holder.btnCrearPrestamo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Abriendo Informaciones de Prestamo...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Abriendo pagar...", Toast.LENGTH_SHORT).show();
 
                 Context context = view.getContext();
                 Intent intent = new Intent(context, pagoDetailActivity.class);
-                intent.putExtra("botonClick", "detallePrestamo");
-                intent.putExtra("ID_iTEM", Prestamo.getId()); //pasar los datos del activity de lista en otro activity de detail
+                intent.putExtra("botonClick", "detalleCliente");
+                intent.putExtra("ID_iTEM", Cliente.getId()); //pasar los datos del activity de lista en otro activity de detail
                 context.startActivity(intent);
             }
         });
@@ -82,6 +77,6 @@ public class Adapter_lista_prestamo extends RecyclerView.Adapter<ListaPrestamoVi
 
     @Override
     public int getItemCount() {
-        return ListPrestamo.size();
+        return ListCliente.size();
     }
 }

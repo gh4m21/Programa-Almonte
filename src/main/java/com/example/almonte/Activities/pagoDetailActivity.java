@@ -53,7 +53,7 @@ public class pagoDetailActivity extends AppCompatActivity {
                     fragment.setArguments(arguments);
                     break;
 
-                case "detalle":
+                case "detallePrestamo":
                     fragment = new DetallePrestamoFragment();
                     fragment.setArguments(arguments);
                     break;

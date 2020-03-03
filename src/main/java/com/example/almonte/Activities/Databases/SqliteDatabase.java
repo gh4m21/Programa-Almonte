@@ -8,8 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-import static java.sql.Types.DOUBLE;
-
 public class SqliteDatabase extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 5;

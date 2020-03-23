@@ -7,19 +7,11 @@
     android:fitsSystemWindows="true"
     tools:context=".Fragments.ListaClienteFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -29,7 +21,7 @@
 
         <EditText
             android:id="@+id/searchText"
-            android:layout_width="match_parent"
+            android:layout_width="240dp"
             android:layout_height="50dp"
             android:layout_gravity="top"
             android:layout_margin="10dp"
@@ -41,8 +33,8 @@
             android:id="@+id/btnSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="55dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="16dp"
             android:text="Buscar" />
 
 

@@ -6,7 +6,11 @@
     android:layout_marginTop="10dp"
     tools:context=".Fragments.NuevaClienteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:text="Apellido"
             android:textColor="#000000"
@@ -74,13 +78,75 @@
             android:textColor="#000000"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/telefono_cliente"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/telefono_cliente1"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:inputType="phone"
+                android:textColor="#000000" />
+
+            <ImageButton
+                android:id="@+id/add_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:src="@drawable/ic_add_circle_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_telefono2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:inputType="phone"
-            android:textColor="#000000" />
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/telefono_cliente2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:inputType="phone"
+                android:textColor="#000000" />
+
+            <ImageButton
+                android:id="@+id/remove_button2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:src="@drawable/ic_remove_circle_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_telefono3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/telefono_cliente3"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:inputType="phone"
+                android:textColor="#000000" />
+
+            <ImageButton
+                android:id="@+id/remove_button3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:src="@drawable/ic_remove_circle_icon" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -91,13 +157,10 @@
             android:textColor="#000000"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/ciudad_cliente"
+        <Spinner
+            android:id="@+id/spinner_ciudad"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:inputType="text"
-            android:textColor="#000000" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -133,21 +196,16 @@
             android:inputType="text"
             android:textColor="#000000" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:background="#4CAF50"
-            android:text="Validar" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:background="#F44336"
-            android:text="Cancelar" />
-
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/validar_cliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="#4CAF50"
+        android:text="Validar" />
+
+</LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

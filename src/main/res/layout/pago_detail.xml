@@ -18,6 +18,7 @@
         <TextView
             android:id="@+id/nombre_cliente"
             android:layout_width="wrap_content"
+            android:text="Fenley"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="20dp" />
@@ -26,14 +27,16 @@
             android:id="@+id/apellido_cliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:gravity="center"
-            android:layout_marginLeft="2dp"
+            android:text="Menelas"
             android:textSize="20dp" />
 
         <TextView
             android:id="@+id/cedula_cliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="283238232"
             android:layout_marginLeft="30dp"
             android:textSize="20dp" />
 
@@ -47,16 +50,20 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/plan_prestamo"
+            android:id="@+id/Plan"
             android:layout_width="wrap_content"
+            android:text="Cuota"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/cuotas_prestamo"
+            android:id="@+id/cuota"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text=" 10000 $RD"
             android:textSize="20dp" />
 
     </LinearLayout>
@@ -69,17 +76,20 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/monto_deuda"
+            android:id="@+id/monto"
             android:layout_width="wrap_content"
+            android:text="78900 $RD"
             android:layout_height="wrap_content"
-            android:textColor="#DF0A0A"
+            android:gravity="center"
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/fecha_hoy"
+            android:id="@+id/fecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="35dp"
+            android:gravity="center"
+            android:text="02/02/2020"
             android:textSize="20dp" />
 
     </LinearLayout>

@@ -13,10 +13,6 @@
             android:title="@string/routinas" />
 
         <item
-            android:id="@+id/Nav_ListasPrestamos"
-            android:title="@string/lista_prestamo" />
-
-        <item
             android:id="@+id/Nav_CrearCliente"
             android:title="@string/crear_cliente" />
 
@@ -25,8 +21,8 @@
             android:title="@string/lista_cliente" />
 
         <item
-            android:id="@+id/Nav_Administrar_Usuario"
-            android:title="@string/administrar_usuario" />
+            android:id="@+id/Nav_Planes"
+            android:title="@string/planes" />
 
     </group>
 
@@ -35,6 +31,12 @@
             <item
                 android:id="@+id/Opciones"
                 android:title="Opciones">
+
+            </item>
+
+            <item
+                android:id="@+id/Disconnect"
+                android:title="Desconnectar">
 
             </item>
         </menu>

@@ -6,15 +6,27 @@
     tools:context=".Fragments.RoutinasFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:id="@+id/request"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:text="sincronizar"
+        android:textSize="16dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"/>
+
+
     <Button
         android:id="@+id/sincronizar"
-        android:layout_width="200dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="@string/sincronizar"
-        android:textSize="16dp"
-        android:layout_gravity="top|center_horizontal"
+        android:layout_gravity="top"
+        android:layout_marginLeft="220dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"/>
+        android:text="Routina"
+        android:textSize="16dp" />
 
     <ProgressBar
         android:id="@+id/progress_bar_sincronizar"
@@ -22,8 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
+        android:layout_marginLeft="10dp"
         android:layout_gravity="top|right"
-        android:visibility="visible"/>
+        android:visibility="invisible"/>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -4,16 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-
+import com.example.almonte.Fragments.CrearPlanFragment;
 import com.example.almonte.Fragments.CrearPrestamoFragment;
+import com.example.almonte.Fragments.DetalleClienteFragment;
+import com.example.almonte.Fragments.DetalleClienteOnline;
+import com.example.almonte.Fragments.DetallePlanFragment;
 import com.example.almonte.Fragments.DetallePrestamoFragment;
+import com.example.almonte.Fragments.HistoriaPagoFragment;
+import com.example.almonte.Fragments.ListaPrestamoFragment;
+import com.example.almonte.Fragments.OpcionImprimirFragment;
 import com.example.almonte.Fragments.RendimientoFragment;
 import com.example.almonte.Fragments.pagoDetailFragment;
 import com.example.almonte.R;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 
 public class pagoDetailActivity extends AppCompatActivity {
@@ -23,26 +28,23 @@ public class pagoDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        Toolbar toolbar = findViewById(R.id.detail_toolbar);
-        setSupportActionBar(toolbar);
 
-        // Show the Up button in the action bar.
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
-        // Aqui se esta creando el fragment y le pasa el datos del id para recuperarla en el fragment
         Fragment fragment = new Fragment();
         String botonClick = (String) getIntent().getSerializableExtra("botonClick");
-        int id = (int) getIntent().getSerializableExtra("ID_iTEM"); //recuperar en el activity el dato del activity lista que esta pasando
+        String id = (String) getIntent().getSerializableExtra("ID_iTEM"); //recuperar en el activity el dato del activity lista que esta pasando
 
         Bundle arguments = new Bundle();
-        arguments.putInt("id_item",
+        arguments.putString("id_item",
                 id);
 
         if (savedInstanceState == null) {
             switch (botonClick) {
+
+                case "prestamo":
+                    fragment = new ListaPrestamoFragment();
+                    fragment.setArguments(arguments);
+                    break;
+
                 case "pagar":
                     fragment = new pagoDetailFragment();
                     fragment.setArguments(arguments);
@@ -63,12 +65,33 @@ public class pagoDetailActivity extends AppCompatActivity {
                     fragment.setArguments(arguments);
                     break;
 
-                case "crearPlanes":
-
+                 case "detalleCliente":
+                    fragment = new DetalleClienteFragment();
+                    fragment.setArguments(arguments);
+                    break;
+                case "detallePlan":
+                    fragment = new DetallePlanFragment();
+                    fragment.setArguments(arguments);
                     break;
 
-                case "detalleCliente":
-
+                case "crearPlan":
+                    fragment = new CrearPlanFragment();
+                    fragment.setArguments(arguments);
+                    break;
+                case "historialPagos":
+                    fragment = new HistoriaPagoFragment();
+                    fragment.setArguments(arguments);
+                    break;
+                case "detalleClienteOnline":
+                    fragment = new DetalleClienteOnline();
+                    fragment.setArguments(arguments);
+                    break;
+                case "crearCliente":
+                    fragment = new CrearPrestamoFragment();
+                    break;
+                case "opcionImpressora":
+                    fragment = new OpcionImprimirFragment();
+                    fragment.setArguments(arguments);
                     break;
             }
 

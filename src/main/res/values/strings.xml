@@ -1,6 +1,6 @@
 <resources>
     <!-- Los strings -->
-    <string name="nombre_Programa">Programita-Almonte</string>
+    <string name="nombre_Programa">Prestamo Almonte</string>
     <string name="crear_usuario">Crear Usuario</string>
     <string name="administrar_usuario">Administrar Usuario</string>
     <string name="crear_prestamo">Crear Nueva Prestamo</string>
@@ -17,6 +17,17 @@
     <string name="Moca">Moca</string>
     <string name="Licey">Licey</string>
 
+    <string name="GET_ALL_ROUTINE_LOANS">http://178.128.144.72/api/loan/get/routine</string>
+    <string name="URL_GET_PLANS">http://178.128.144.72/api/plan</string>
+    <string name="URL_GET_CLIENTS">http://178.128.144.72/api/client</string>
+    <string name="URL_GET_LOANS_BY_CLIENT">http://178.128.144.72/api/loan/client</string>
+    <string name="URL_GET_LOAN_IDLOAN">http://178.128.144.72/api/loan</string>
+    <string name="URL_SET_CLIENT_LOAN">http://178.128.144.72/api/clientwloan</string>
+    <string name="URL_SET_LOANS">http://178.128.144.72/api/loan</string>
+    <string name="URL_SET_DUES">http://178.128.144.72/api/loan/due</string>
+    <string name="URL_GET_USERS">http://178.128.144.72/api/user</string>
+    <string name="URL_CHECK_AUTH">http://178.128.144.72/api/auth</string>
+
     <!-- Styles -->
     <style name="Botones" parent="">
         <item name="android:layout_margin">10dp</item>
@@ -25,11 +36,11 @@
         <item name="android:background">#4CAF50</item>
     </style>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
     <string name="monto_prestamo">Monto Prestamo</string>
+    <string name="planes">Planes</string>
 
 
 </resources>

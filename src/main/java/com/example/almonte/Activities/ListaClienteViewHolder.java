@@ -10,20 +10,22 @@ import com.example.almonte.R;
 
 public class ListaClienteViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView nombre, apellido;
-    public EditText searchTxt;
-    public Button btnSearch, btnCrearPrestamo, btnDetalle;
+    TextView nombre_cliente, apellido_cliente, cedula_cliente, telefono_cliente;
+    Button btnHistorial, btnDetalle, btnEditar;
 
     public ListaClienteViewHolder(View itemView) {
+
         super(itemView);
+        nombre_cliente = itemView.findViewById(R.id.nombre_cliente);
+        apellido_cliente = itemView.findViewById(R.id.apellido_cliente);
+        cedula_cliente = itemView.findViewById(R.id.cedula_cliente);
+        telefono_cliente = itemView.findViewById(R.id.telefono_cliente);
 
-        nombre = itemView.findViewById(R.id.nombre_cliente);
-        apellido = itemView.findViewById(R.id.apellido_cliente);
-        searchTxt = (EditText) itemView.findViewById(R.id.searchText);
-        btnSearch = itemView.findViewById(R.id.btnSearch);
+        btnHistorial = itemView.findViewById(R.id.btnHistorial);
+        btnEditar = itemView.findViewById(R.id.btnEditar);
         btnDetalle = itemView.findViewById(R.id.btndetalle);
-        btnCrearPrestamo = itemView.findViewById(R.id.crearPrestamo);
-
     }
 
 }
+
+

@@ -26,8 +26,6 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <!-- TODO: Update blank fragment layout -->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,33 +106,6 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#E6E6E6"
-                    android:text="Monto Deuda"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/monto_deuda"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#E6E6E6"
-                    android:text="500 $RD"
-                    android:textSize="20sp"
-                    android:textStyle="italic" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="#E6E6E6"
-                android:orientation="vertical"
-                android:padding="10dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -148,15 +119,6 @@
                         android:text="Plan"
                         android:textSize="20sp"
                         android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/ver_plan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:background="#E6E6E6"
-                        android:text="Ver Planes"
-                        android:textColor="#1B3991" />
 
                 </LinearLayout>
 
@@ -183,16 +145,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#E6E6E6"
-                    android:text="Total Pago realizado"
+                    android:text="Cuota"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/total_pago_realizado"
+                    android:id="@+id/monto_deuda"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#E6E6E6"
-                    android:text="5"
+                    android:text="500 $RD"
                     android:textSize="20sp"
                     android:textStyle="italic" />
 
@@ -265,12 +227,9 @@
                     android:layout_height="wrap_content"
                     android:text="Historicos de Pagos" />
 
-                <Button
-                    android:id="@+id/historico_prestamo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Prestamos Anteriores" />
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp" />
 
             </LinearLayout>
 

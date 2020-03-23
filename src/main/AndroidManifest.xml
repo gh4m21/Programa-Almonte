@@ -4,22 +4,49 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+        android:name=".Activities.BluetoothPrint"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_a_icon"
         android:label="@string/nombre_Programa"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_a_icon"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Activities.SplashScreen"
+            android:noHistory="true"
+            android:screenOrientation="nosensor"
+            android:theme="@style/NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.Login"
+            android:noHistory="true"
+            android:screenOrientation="nosensor"
+            android:theme="@style/NoTitleBar" />
         <activity
             android:name=".Activities.clienteNoPagoActivity"
             android:label="@string/title_item_list"
+            android:screenOrientation="nosensor"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.LoadRoutinaInLocal"
+            android:screenOrientation="nosensor" />
         <activity
             android:name=".Activities.pagoDetailActivity"
             android:label="@string/title_item_detail"
             android:parentActivityName=".Activities.clienteNoPagoActivity"
+            android:screenOrientation="nosensor"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -27,13 +54,8 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

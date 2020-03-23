@@ -26,7 +26,7 @@ public class ListaPrestamoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_prestamo);
 
-        RecyclerView PrestamoView = findViewById(R.id.item_list);
+       /* RecyclerView PrestamoView = findViewById(R.id.item_list);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         PrestamoView.setLayoutManager(mLayoutManager);
 
@@ -49,7 +49,7 @@ public class ListaPrestamoActivity extends AppCompatActivity {
             //funciones que sirven para update el activity cuando se actualiza los datos de un database, una lista...
             finish();
             startActivity(getIntent());
-        }
+        }*/
     }
 
     @Override

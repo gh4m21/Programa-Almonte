@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.OpcionImprimirFragment">
+
+    <Button
+        android:id="@+id/connectar_printer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:text="Connectar Impressora"
+        android:visibility="visible"
+        android:layout_marginTop="16dp"/>
+
+
+    <TextView
+        android:id="@+id/mensaje_bluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="Impressora No Connectado"
+        android:textSize="16sp"
+        android:drawableLeft="@drawable/ic_print_icon"
+        android:drawablePadding="10dp"
+        android:layout_margin="16dp"/>
+
+</LinearLayout>

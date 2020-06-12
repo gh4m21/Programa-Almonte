@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/inicio"
+            android:title="@string/inicio" />
+
+        <item
+            android:id="@+id/Nav_VerRoutinas"
+            android:title="@string/routinas" />
+
+        <item
+            android:id="@+id/Nav_CrearCliente"
+            android:title="@string/crear_cliente" />
+
+        <item
+            android:id="@+id/Nav_VerCliente"
+            android:title="@string/lista_cliente" />
+
+        <item
+            android:id="@+id/Nav_Planes"
+            android:title="@string/planes" />
+
+    </group>
+
+    <item android:title="Opciones Adicionales">
+        <menu>
+            <item
+                android:id="@+id/Opciones"
+                android:title="Opciones">
+
+            </item>
+
+            <item
+                android:id="@+id/Disconnect"
+                android:title="Desconnectar">
+
+            </item>
+        </menu>
+
+    </item>
+
+</menu>
+
